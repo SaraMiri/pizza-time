@@ -4,16 +4,59 @@ import PizzaIngredients from "./PizzaIngredients";
 import PizzaTotal from "./PizzaTotal";
 
 class Pizza extends React.Component {
+  state = {
+    ingredients: {
+      dough: {
+        id: 1,
+        name: "Dough",
+        cash: 500,
+        selected: true
+      },
+      pinneaple: {
+        id: 2,
+        name: "Pinneaple",
+        cash: 150,
+        selected: false
+      },
+      mozzarella: {
+        id: 3,
+        name: "Mozzarella",
+        cash: 200,
+        selected: false
+      },
+      pepperoni: {
+        id: 4,
+        name: "Pepperoni",
+        cash: 125,
+        selected: false
+      },
+      ham: {
+        id: 5,
+        name: "Ham",
+        cash: 150,
+        selected: false
+      },
+      tuna: {
+        id: 6,
+        name: "Tuna",
+        cash: 100,
+        selected: false
+      }
+    }
+  };
+
   render() {
     return (
       <div className="content">
         <PizzaHeader />
-        <PizzaIngredients />
+        <PizzaIngredients ingredients={this.state.ingredients} />
         <PizzaTotal />
       </div>
     );
   }
 }
+
+export default Pizza;
 
 /* TODO: Create the Pizza Component consisting of:
   - A `div` with a class `content`
@@ -60,5 +103,3 @@ class Pizza extends React.Component {
       }
     }
 */
-
-export default Pizza;
