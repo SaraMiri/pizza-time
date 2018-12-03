@@ -1,8 +1,23 @@
 import React from "react";
+import { formatPrice } from "../helpers";
 
 class PizzaIngredient extends React.Component {
+  handleClick = _event => {
+    this.props.ingredientSelector(this.props.ingredientKey);
+  };
+
   render() {
-    return <h1>Ingredients</h1>;
+    return (
+      <li
+        className={this.props.ingredient.selected ? "marked" : ""}
+        onClick={this.handleClick}
+      >
+        <span className="phrase">{this.props.ingredient.name}</span>
+        <span className="points">
+          {formatPrice(this.props.ingredient.cash)}
+        </span>
+      </li>
+    );
   }
 }
 

@@ -45,12 +45,25 @@ class Pizza extends React.Component {
     }
   };
 
+  ingredientSelector = ingredientKey => {
+    // 1. Hacer una copia del `estado`
+    const newIngredients = { ...this.state.ingredients };
+    // 2. Añadir newIngredient a newIngredients
+    newIngredients[ingredientKey].selected = !newIngredients[ingredientKey]
+      .selected;
+    // 3. Añadir newIngredients como el nuevo `estado`
+    this.setState({ ingredients: newIngredients });
+  };
+
   render() {
     return (
       <div className="content">
         <PizzaHeader />
-        <PizzaIngredients ingredients={this.state.ingredients} />
-        <PizzaTotal />
+        <PizzaIngredients
+          ingredients={this.state.ingredients}
+          ingredientSelector={this.ingredientSelector}
+        />
+        <PizzaTotal ingredients={this.state.ingredients} />
       </div>
     );
   }
