@@ -1,3 +1,11 @@
+import React from "react";
+
+class Pizza extends React.Component {
+  render() {
+    return <h1>Pizza</h1>;
+  }
+}
+
 /* TODO: Create the Pizza Component consisting of:
   - A `div` with a class `content`
     - A `PizzaHeader` component
@@ -43,3 +51,5 @@
       }
     }
 */
+
+export default Pizza;
