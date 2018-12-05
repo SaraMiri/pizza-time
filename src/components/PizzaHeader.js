@@ -5,7 +5,7 @@ class PizzaHeader extends React.Component {
     return (
       <header>
         <h1 className="pizza-text">
-          <span role="pizza" aria-label="">
+          <span role="img" aria-label="">
             🍕
           </span>
           It's Pizza Time!

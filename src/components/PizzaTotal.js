@@ -3,9 +3,10 @@ import { formatPrice } from "../helpers";
 
 class PizzaTotal extends React.Component {
   total = ingredients => {
-    return Object.keys(this.props.ingredients).filter(
-      ingredientKey => ingredients[ingredientKey].selected
-    );
+    return Object.keys(this.props.ingredients)
+      .filter(ingredientKey => ingredients[ingredientKey].selected)
+      .map(ingredientKey => ingredients[ingredientKey].cash)
+      .reduce((total, currentPrice) => total + currentPrice, 0);
   };
 
   render() {
@@ -13,9 +14,7 @@ class PizzaTotal extends React.Component {
       <div className="score">
         <span className="label">Total</span>
         <span className="value">
-          {this.total(this.props.ingredients)}
-          {/*Map(this.props.ingredients.cash)}
-          {/*reduce({ formatPrice }, 0)*/}
+          {formatPrice(this.total(this.props.ingredients))}
         </span>
       </div>
     );
